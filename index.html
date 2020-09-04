@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pomodoro Clock</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />    
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+</head>
+<body>
+
+    <div id="pomodoro-clock-container">
+        <h2 id="pomodoro-clock-title">Pomodoro Clock</h2>
+        <div id="duration-container">
+            <div id="break-session-container">
+                <p>Break Length</p>
+                <div id="plus-minus-container">
+                    <span id="minus-break-length">
+                        <i class="fas fa-minus-circle"></i>
+                    </span>
+                    <span id="break-length">5</span>
+                    <span id="plus-break-length">
+                        <i class="fas fa-plus-circle"></i>
+                    </span>
+                </div>
+            </div>
+            <div id="break-session-container">
+                <p>Session Length</p>
+                <div id="plus-minus-container">
+                    <span id="minus-session-length">
+                        <i class="fas fa-minus-circle"></i>
+                    </span>
+                    <span id="session-length">5</span>
+                    <span id="plus-session-length">
+                        <i class="fas fa-plus-circle"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="clock-container">
+            <span id="duration-type">Session</span>
+            <div id="break-session-duration">
+                <span id="minutes">25</span>
+                <span id="colon">:</span>
+                <span id="seconds">00</span>
+            </div>
+        </div>
+
+        <div id="buttons-container">
+            <span id="play-button">
+                <i class="fas fa-play"></i>
+            </span>
+            <span id="pause-button">
+                <i class="fas fa-pause"></i>
+            </span>
+            <span id="restart-button">
+                <i class="fas fa-sync"></i>
+            </span>
+        </div>
+    </div>
+    <script src='main.js'></script>
+</body>
+
+</html>

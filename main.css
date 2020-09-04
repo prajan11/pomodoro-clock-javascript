@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Ticking Timebomb BB';
+    src: url('./fonts/TickingTimebombBB_ital.ttf');
+}
+
+body{
+    background-color: teal;
+}
+
+#pomodoro-clock-container {
+    max-width: 50%;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    top: 10vh;
+    font-size: 2em;
+}
+
+#pomodoro-clock-title{
+    font-family: cursive;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+#duration-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#break-session-container{
+    font-family: monospace;
+    font-size: 1em;
+}
+
+
+#plus-minus-container{
+    font-size: 1.2em;
+}
+
+#clock-container{
+    border: 5px solid #0a0a0a;
+    border-radius: 25px;
+    max-width: 40%;
+    position: relative;
+    margin: auto;
+    top: 20px;
+}
+
+#break-session-duration{
+    font-family: "Ticking Timebomb BB";
+    font-size: 2.8em;
+}
+
+#duration-type{
+    display: block;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+#buttons-container{
+    position: relative;
+    top: 50px;
+    font-size: 1.2em;
+}
+
+#play-button, #pause-button{
+    margin-right: 15px;
+}
+
+@media only screen and (max-width: 1200px){
+    #pomodoro-clock-container {
+        max-width: 60%;
+        font-size: 1.75em;
+    }
+
+   
+}
+
+@media only screen and (max-width: 850px){
+    #pomodoro-clock-container {
+        max-width: 80%;
+        font-size: 1.60em;
+    }
+
+   
+}
+
+@media only screen and (max-width: 650px){
+    #pomodoro-clock-container {
+        max-width: 100%;
+        font-size: 1.3em;
+    }
+
+   
+}
+
+
+
