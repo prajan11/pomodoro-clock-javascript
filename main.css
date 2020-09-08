@@ -67,6 +67,10 @@ body{
     margin-right: 15px;
 }
 
+#play-button, #pause-button, #restart-button, #minus-break-length, #plus-break-length, #minus-session-length, #plus-session-length {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 1200px){
     #pomodoro-clock-container {
         max-width: 60%;
