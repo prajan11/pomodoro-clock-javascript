@@ -1,11 +1,15 @@
 let session_length = 30;
 let break_length = 5;
+let duration_type = "Session";
 let timer_run_status = false;
+let session_time = true;
 let intervalFunction;
 
 document.getElementById('session-length').innerHTML = session_length;
 document.getElementById('break-length').innerHTML = break_length;
 document.getElementById('minutes').innerHTML = session_length;
+document.getElementById('seconds').innerHTML = "00";
+document.getElementById('duration-type').innerHTML = duration_type;
 
 
 //for incrementing and decrementing the session lengths
@@ -53,6 +57,8 @@ let resetTime = () => {
 
     clearInterval(intervalFunction);
 
+    timer_run_status = false;
+
     session_length = 30;
     break_length = 5;
 
@@ -67,20 +73,18 @@ let resetTime = () => {
  
 }
 
-
-let runTimer = () => {
-    timer_run_status= !timer_run_status;
+//for running the timer or stopping the time
+let regulateTimer = () => {
+    timer_run_status= !timer_run_status;   // for toggling timer run status on click of play/pause button
   
     if(timer_run_status){
         document.getElementById('play-pause-icon').classList.remove('fas', 'fa-play');
         document.getElementById('play-pause-icon').classList.add('fas', 'fa-pause');
-        console.log('set interval');
         intervalFunction = setInterval(updateTimeEverySecond, 1000);
     }
     else{
         document.getElementById('play-pause-icon').classList.remove('fas', 'fa-pause');
         document.getElementById('play-pause-icon').classList.add('fas', 'fa-play');
-        console.log('Clear Interval')
         clearInterval(intervalFunction);
     }
     
@@ -88,12 +92,61 @@ let runTimer = () => {
 
 
 let updateTimeEverySecond = () => {
-    let total_seconds = session_length * 60 - 1 ;
-    let minutes = Math.floor(total_seconds / 60);
-    let seconds = Math.floor(total_seconds) - minutes * 60;
+    //if session time is active
+    if(session_time){
+        let total_seconds = session_length * 60 - 1 ;
+        if(total_seconds >= 0){
+            let minutes = Math.floor(total_seconds / 60);
+            let seconds = Math.floor(total_seconds) - minutes * 60;
+        
+            document.getElementById('minutes').innerHTML = minutes.toString().length <= 1 ? '0'+minutes : minutes;
+            document.getElementById('seconds').innerHTML = seconds.toString().length <= 1 ? '0'+seconds : seconds;
+            session_length = minutes + (seconds / 60);
+        }
+        else{  //for updating break time for a second after session time becomes 0
+            session_time = false;
+            duration_type="Break";
+            total_seconds = break_length * 60 - 1 ;
+    
+            let minutes = Math.floor(total_seconds / 60);
+            let seconds = Math.floor(total_seconds) - minutes * 60;
+        
+            document.getElementById('minutes').innerHTML = minutes.toString().length <= 1 ? '0'+minutes : minutes;
+            document.getElementById('seconds').innerHTML = seconds.toString().length <= 1 ? '0'+seconds : seconds;
+            document.getElementById('duration-type').innerHTML = duration_type;
+            break_length = minutes + (seconds / 60);
+           
+        }
+    }
+    else{  //if break time is active
+        let total_seconds = break_length * 60 - 1 ;
+        if(total_seconds >= 0){
+            let minutes = Math.floor(total_seconds / 60);
+            let seconds = Math.floor(total_seconds) - minutes * 60;
+        
+            document.getElementById('minutes').innerHTML = minutes.toString().length <= 1 ? '0'+minutes : minutes;
+            document.getElementById('seconds').innerHTML = seconds.toString().length <= 1 ? '0'+seconds : seconds;
+            break_length = minutes + (seconds / 60);
+        }
+        else{   //for updating session time for a second after break time becomes 0
+            session_length = Number(document.getElementById('session-length').textContent);
+            session_time = true;
+            duration_type="Session";
+            total_seconds = session_length * 60 - 1 ;
+    
+            let minutes = Math.floor(total_seconds / 60);
+            let seconds = Math.floor(total_seconds) - minutes * 60;
+        
+            document.getElementById('minutes').innerHTML = minutes.toString().length <= 1 ? '0'+minutes : minutes;
+            document.getElementById('seconds').innerHTML = seconds.toString().length <= 1 ? '0'+seconds : seconds;
+            document.getElementById('duration-type').innerHTML = duration_type;
+            session_length = minutes + (seconds / 60);
+           
+        }
+    }
+   
+   
+    
 
-    document.getElementById('minutes').innerHTML = minutes.toString().length <= 1 ? '0'+minutes : minutes;
-    document.getElementById('seconds').innerHTML = seconds.toString().length <= 1 ? '0'+seconds : seconds;
-
-    session_length = minutes + (seconds / 60);
+    
 }

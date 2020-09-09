@@ -21,7 +21,7 @@
                     <span id="minus-break-length" onclick="regulateBreakLength('minus')">
                         <i class="fas fa-minus-circle"></i>
                     </span>
-                    <span id="break-length">5</span>
+                    <span id="break-length"></span>
                     <span id="plus-break-length" onclick="regulateBreakLength('plus')">
                         <i class="fas fa-plus-circle"></i>
                     </span>
@@ -33,7 +33,7 @@
                     <span id="minus-session-length" onclick="regulateSessionLength('minus')">
                         <i class="fas fa-minus-circle"></i>
                     </span>
-                    <span id="session-length">5</span>
+                    <span id="session-length"></span>
                     <span id="plus-session-length" onclick="regulateSessionLength('plus')">
                         <i class="fas fa-plus-circle"></i>
                     </span>
@@ -42,16 +42,16 @@
         </div>
 
         <div id="clock-container">
-            <span id="duration-type">Session</span>
+            <span id="duration-type"></span>
             <div id="break-session-duration">
-                <span id="minutes">25</span>
+                <span id="minutes"></span>
                 <span id="colon">:</span>
-                <span id="seconds">00</span>
+                <span id="seconds"></span>
             </div>
         </div>
 
         <div id="buttons-container">
-            <span id="play-button" onclick="runTimer()">
+            <span id="play-button" onclick="regulateTimer()">
                 <i class="fas fa-play" id="play-pause-icon"></i>
             </span>
             <!-- <span id="pause-button">
